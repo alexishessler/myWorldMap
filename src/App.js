@@ -41,7 +41,7 @@ const messageJoiSchema = Joi.object().keys({
     message: Joi.string().min(1).max(500).required(),
 })
 
-const API_URL = window.location.hostname === 'localhost' ? 'https://myworldmapback.herokuapp.com/api/v1/messages' : 'production-url-here';
+const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:3000/api/v1/messages' : 'https://myworldmapback.herokuapp.com/api/v1/messages';
 
 class App extends Component {
 
