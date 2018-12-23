@@ -41,7 +41,7 @@ const messageJoiSchema = Joi.object().keys({
     message: Joi.string().min(1).max(500).required(),
 })
 
-const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:3000/api/v1/messages' : 'production-url-here';
+const API_URL = window.location.hostname === 'localhost' ? 'https://myworldmapback.herokuapp.com/api/v1/messages' : 'production-url-here';
 
 class App extends Component {
 
@@ -189,12 +189,12 @@ class App extends Component {
       </Map>
 
       <Card body className="message-form">
-        <CardTitle>Welcome to guest map !</CardTitle>
+        <CardTitle>Welcome to myWorldMap !</CardTitle>
         <CardText>Leave a message with your location</CardText>
         { !this.state.sendingMessage && !this.state.sentMessage && this.state.haveUsersLocation ?
           <Form onSubmit={this.formSubmitted}>
             <FormGroup>
-              <Label for="name">Email</Label>
+              <Label for="name">Name</Label>
               <Input
                 onChange={this.valueChanged}
                 type="text"
@@ -215,7 +215,7 @@ class App extends Component {
           </Form> :
           this.state.sendingMessage || !this.state.haveUsersLocation ?
           <img src={require('./loading.svg')} width="100" height="auto" />
-          : <CardText>Thx a lot !</CardText>
+          : <CardText>Your message has been sent!</CardText>
          }
       </Card>
 
